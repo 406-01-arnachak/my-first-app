@@ -57,7 +57,7 @@ def show_result_dialog(ans1, ans2, ans3, ans4):
         st.error(f"❌ ข้อ 3: ยังไม่ถูกต้อง (คุณตอบ '{u_ans3}')")
 
    # ตรวจข้อ 4
-    if u_ans1 == "nontanat":
+    if u_ans4 == "nontanat":
         st.success("✅ ข้อ 4: ถูกต้อง")
         score += 1
     else:
@@ -102,7 +102,7 @@ ans3 = st.text_input(
     value=st.session_state.ans3_val,
   )
 ans4 = st.text_input(
-    "ข้อ 3: Name number 12  `Nont_na_t`. ",
+    "ข้อ 4: Name number 12  `Nont_na_t`. ",
     value=st.session_state.ans4_val,
      )
 # อัปเดตค่าล่าสุดเข้าตัวแปร
