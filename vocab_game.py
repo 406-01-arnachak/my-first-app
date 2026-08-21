@@ -104,7 +104,7 @@ ans3 = st.text_input(
 ans4 = st.text_input(
     "ข้อ 3: Name number 12  `Nont_na_t`. ",
     value=st.session_state.ans4_val,
-    
+     )
 # อัปเดตค่าล่าสุดเข้าตัวแปร
 st.session_state.ans1_val = ans1
 st.session_state.ans2_val = ans2
