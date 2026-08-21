@@ -19,6 +19,8 @@ if "ans4_val" not in st.session_state:
 def reset_game():
     st.session_state.ans1_val = ""  # เคลียร์ค่าช่องข้อ 1
     st.session_state.ans2_val = ""  # เคลียร์ค่าช่องข้อ 2
+    st.session_state.ans3_val = ""  # เคลียร์ค่าช่องข้อ 1
+    st.session_state.ans4_val = ""  # เคลียร์ค่าช่องข้อ 2
     st.session_state.start = time.time()  # เริ่มเวลาใหม่
     st.session_state.is_ended = False  # ปิด Dialog
 
@@ -50,7 +52,7 @@ def show_result_dialog(ans1, ans2, ans3, ans4):
     else:
         st.error(f"❌ ข้อ 2: ยังไม่ถูกต้อง (คุณตอบ '{u_ans2}')")
     # ตรวจข้อ 3
-    if u_ans1 == "pleang":
+    if u_ans3== "pleang":
         st.success("✅ ข้อ 3: ถูกต้อง")
         score += 1
     else:
@@ -65,7 +67,7 @@ def show_result_dialog(ans1, ans2, ans3, ans4):
 
     st.info(f"🏆 ได้คะแนนรวม: {score} คะแนน")
 
-    if score == 2:
+    if score == 4:
         st.success("🎉 You win!")
     else:
         st.error("💀 You lose!")
@@ -78,7 +80,7 @@ st.button("🎮 เริ่มเล่นเกม", on_click=reset_game)
 
 # 2. แถบแสดงเวลานับถอยหลัง
 if "start" in st.session_state and not st.session_state.get("is_ended", False):
-    time_left = int(30 - (time.time() - st.session_state.start))
+    time_left = int(60 - (time.time() - st.session_state.start))
 
     if time_left > 0:
         st.error(f"⏳ เหลือเวลา: {time_left} วินาที")
@@ -102,7 +104,7 @@ ans3 = st.text_input(
     value=st.session_state.ans3_val,
   )
 ans4 = st.text_input(
-    "ข้อ 4: Name number 12  `Nont_na_t`. ",
+    "ข้อ 4: Name number 12  `Nont_n_t`. ",
     value=st.session_state.ans4_val,
      )
 # อัปเดตค่าล่าสุดเข้าตัวแปร
@@ -122,7 +124,7 @@ if "start" in st.session_state and not st.session_state.get("is_ended", False):
 
 # 5. แสดง Dialog ผลลัพธ์
 if st.session_state.get("is_ended", False):
-    show_result_dialog(ans1, ans2)
+    show_result_dialog(ans1, ans2, ans3, ans4)
 
 st.divider()
 st.write("นายอาณาจักร รุ่งเรือง เลขที่ 1 ม.4/6")
