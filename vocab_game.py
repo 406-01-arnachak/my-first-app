@@ -101,9 +101,9 @@ ans3 = st.text_input(
     "ข้อ 3: Who is number 12 in the class `Ple_n_`.",
     value=st.session_state.ans3_val,
   )
-ans3 = st.text_input(
+ans4 = st.text_input(
     "ข้อ 3: Name number 12  `Nont_na_t`. ",
-    value=st.session_state.ans3_val,
+    value=st.session_state.ans4_val,
     
 # อัปเดตค่าล่าสุดเข้าตัวแปร
 st.session_state.ans1_val = ans1
